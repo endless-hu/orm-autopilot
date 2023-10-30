@@ -1,2 +1,3 @@
-# orm-autopilot
-ESaaS 23 fall course project
+# ORM AutoPilot
+
+LLM-backed tool to optimize your ORM code!
