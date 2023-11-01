@@ -2,6 +2,7 @@
     <h1>Welcome to ORM Autopilot.</h1>
 </div>
 
+<!--
 <div class="mb-3">
     <form>
     <div class="form-group">
@@ -9,7 +10,34 @@
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="15"></textarea>
     </div>
     </form>
-</div>
+</div>h
 <div class="mb-3">
     <button type="submit" class="btn btn-primary">Submit</button>
+</div>
+-->
+
+<div id="update-page" class="mb-3">
+  <section class="left">
+    <%= form_tag orms_path do %>
+      <h2 class="title">
+        ORM Code
+      </h2>
+      <div class="input-div">
+        <%= text_area_tag 'code' , nil, rows: 10, placeholder: 'Please input your ORM code', class: 'code-input' ,
+          required: true %>
+      </div>
+      <div class="function">
+        <%= submit_tag 'Submit' , class: 'btn btn-xs btn-primary' %>
+      </div>
+      <% end %>
+  </section>
+
+  <section class="right">
+    <h2 class="title">
+      Feedback
+    </h2>
+    <div class="feedback-div">
+
+    </div>
+  </section>
 </div>

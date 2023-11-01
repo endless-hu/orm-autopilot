@@ -1,0 +1,76 @@
+header{
+  display: flex;
+  justify-content: space-around;
+  margin: 20px;
+}
+
+#update-page{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+}
+
+#update-page .title {
+  margin: 10px;
+}
+
+#update-page .function {
+  display: flex;
+  justify-content: space-around;
+}
+
+#update-page .left .input-div,
+#update-page .right .feedback-div,
+#update-page .btn {
+  border: solid 1px green;
+  padding: 10px;
+  margin: 10px;
+}
+
+#update-page .left .code-input{
+  width: 500px;
+  height: 450px;
+}
+
+#update-page .right .feedback-div{
+  width: 500px;
+  height: 500px;
+}
+
+.styled-table {
+  border-collapse: collapse;
+  margin: 25px auto;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+    min-width: 400px;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+.styled-table tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
