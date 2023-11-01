@@ -50,8 +50,8 @@ Besides, make the style consistent across the app.
 
 Fill in the code in the following files:
 
-- [ ] [`app/views/orms/new.html.erb`](../app/views/orms/new.html.erb)
-- [ ] [`app/views/orms/index.html.erb`](../app/views/orms/index.html.erb)
+- [x] [`app/views/orms/new.html.erb`](../app/views/orms/new.html.erb)
+- [x] [`app/views/orms/index.html.erb`](../app/views/orms/index.html.erb)
 
 You will have to communicate with Haonan to figure out the database 
 schema so that you can correctly list all ORM review histories.
@@ -61,7 +61,7 @@ get a rough idea about the components in each page.
 
 ### To Haonan:
 
-- [ ] Create a model named `orm` using:
+- [x] Create a model named `orm` using:
 ```bash
 $ rails generate model <ModelName> <Attr1> <Attr2>...
 ```
@@ -74,8 +74,8 @@ $ rails generate model <ModelName> <Attr1> <Attr2>...
 
 Fill in the code in the following files:
 
-- [ ] [`app/views/orms/edit.html.erb`](../app/views/orms/edit.html.erb)
-- [ ] [`app/views/orms/show.html.erb`](../app/views/orms/show.html.erb)
+- [x] [`app/views/orms/edit.html.erb`](../app/views/orms/edit.html.erb)
+- [x] [`app/views/orms/show.html.erb`](../app/views/orms/show.html.erb)
 
 You will have to communicate with Haonan to figure out the database 
 schema so that you can correctly present the info of each ORM review.
@@ -87,5 +87,5 @@ get a rough idea about the components in each page.
 
 - [x] Setup the project code base and testing framework.
 - [x] Write relevant docs for teammates.
-- [ ] Write user stories in `cucumber`. Ensure testing coverage.
-- [ ] Deploy the app to Heroku.
+- [x] Write user stories in `cucumber`. Ensure testing coverage.
+- [x] Deploy the app to Heroku.
