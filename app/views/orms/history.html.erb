@@ -1,0 +1,23 @@
+<header>
+  <%= link_to 'Home', new_orm_path  %>
+  <%= link_to 'history', history_orms_path  %>
+</header>
+
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th scope="col">Chat ID</th>
+        <th scope="col">ORM Code</th>
+        <th scope="col">Feedback</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @chats.each do |chat| %>
+      <tr class="">
+        <td><%= chat.id %></td>
+        <td><%= simple_format chat.code %></td>
+        <td><%= simple_format chat.feedback %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
