@@ -44,6 +44,16 @@ To run user stories:
 $ bundle exec cucumber
 ```
 
+## Heroku Deployment Link:
+
+https://cryptic-shore-36909-e715a94c8071.herokuapp.com/
+
+## Repo Link
+
+**This is a private repo! Please ask Zhijing Hu(@endless-hu) to make it public or add you as collaborators.**
+
+https://github.com/endless-hu/orm-autopilot
+
 ## Development Instructions
 
 - [Iteration 1](./docs/iter1.md)
