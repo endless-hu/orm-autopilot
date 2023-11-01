@@ -34,7 +34,7 @@ Scenario: update a review
   When I fill in the form with the ORM code "Update to test 1"
   And I press "Update"
   Then I should be on the review page for chat ID "1"
-  Then I should see the "test code 1" code
+  Then I should see the "Update to test 1" code
   And I should see the reviews
   And I should see the "Edit" button
 
@@ -51,6 +51,6 @@ Scenario: delete a review
   Given I am on the review page for chat ID "1"
   And I press "Edit"
   Then I should be on the edit review page for chat ID "1"
-  When I press "Delete"
+  When I follow the "Delete" link
   Then I should be on the homepage
   And I should not see the review "test 1"

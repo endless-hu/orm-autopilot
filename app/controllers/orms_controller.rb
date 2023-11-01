@@ -22,18 +22,15 @@ class OrmsController < ApplicationController
   end
 
   def update
-    if params[:commit] == 'Update'
-      # feedback = GptClient.completions(params[:code])["choices"].map { |c| c["text"] }.join
-      feedback = 'It is correct'
-      chat = Chat.create(code: params[:code], feedback: feedback)
-      redirect_to orm_path(chat.id)
-    else
-      @chat.destroy
-      redirect_to "/orms/new"
-    end
+    # feedback = GptClient.completions(params[:code])["choices"].map { |c| c["text"] }.join
+    feedback = 'It is correct'
+    @chat.update(code: params[:code], feedback: feedback)
+    redirect_to orm_path(@chat)
   end
 
   def destroy
+    @chat.destroy
+    redirect_to "/orms", notice: 'Chat was successfully deleted.'
   end
 
   private
