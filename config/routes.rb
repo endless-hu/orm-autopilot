@@ -13,5 +13,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  get '/orms/chat/:id' => 'orms#update_page'
+  get '/orms/chat/:id' => 'orms#edit'
 end

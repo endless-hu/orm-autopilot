@@ -1,6 +1,7 @@
 class OrmsController < ApplicationController
   before_action :set_chat, only: %i[update_page show edit update destroy]
   def index
+    @chats = Chat.all.order(id: :desc)
   end
 
   def show
@@ -11,14 +12,6 @@ class OrmsController < ApplicationController
   end
 
   def edit
-  end
-
-  def update_page
-
-  end
-
-  def history
-    @chats = Chat.all.order(id: :desc)
   end
 
   def create

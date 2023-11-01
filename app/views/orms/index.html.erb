@@ -1,11 +1,28 @@
 <div class="d-flex align-items-center justify-content-center">
   <h3>My ORM Autopilot History</h3>
 </div>
-<div class="list-group">
-  <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
-    The current link item
-  </a>
-  <a href="#" class="list-group-item list-group-item-action">A second link item</a>
-  <a href="#" class="list-group-item list-group-item-action">A third link item</a>
-  <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
-</div>
+
+<% if @chats.nil? || @chats.empty? %>
+  <div class="d-flex align-items-center justify-content-center">
+    <p>No history yet. Click "New" to start a new ORM code review!</p>
+  </div>
+<% else %>
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th scope="col">Chat ID</th>
+        <th scope="col">ORM Code</th>
+        <th scope="col">Feedback</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @chats.each do |chat| %>
+      <tr class="">
+        <td><%= chat.id %></td>
+        <td><%= simple_format chat.code %></td>
+        <td><%= simple_format chat.feedback %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
