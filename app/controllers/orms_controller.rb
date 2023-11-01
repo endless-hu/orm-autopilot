@@ -18,7 +18,7 @@ class OrmsController < ApplicationController
     # feedback = GptClient.completions(params[:code])["choices"].map { |c| c["text"] }.join
     feedback = 'It is correct'
     chat = Chat.create(code: params[:code], feedback: feedback)
-    redirect_to "/orms/chat/#{chat.id}"
+    redirect_to orm_path(chat.id)
   end
 
   def update
@@ -26,7 +26,7 @@ class OrmsController < ApplicationController
       # feedback = GptClient.completions(params[:code])["choices"].map { |c| c["text"] }.join
       feedback = 'It is correct'
       chat = Chat.create(code: params[:code], feedback: feedback)
-      redirect_to "/orms/chat/#{chat.id}"
+      redirect_to orm_path(chat.id)
     else
       @chat.destroy
       redirect_to "/orms/new"
