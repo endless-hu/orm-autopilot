@@ -1,5 +1,5 @@
 class OrmsController < ApplicationController
-  before_action :set_chat, only: %i[update_page show edit update destroy]
+  before_action :set_chat, only: %i[show edit update destroy]
   def index
     @chats = Chat.all.order(id: :desc)
   end
