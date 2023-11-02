@@ -65,10 +65,10 @@ get a rough idea about the components in each page.
 ```bash
 $ rails generate model <ModelName> <Attr1> <Attr2>...
 ```
-- [ ] Create the corresponding DB schema and provide migration instructions of test/production databases.
-- [ ] Fill in the `orms` controller located at 
+- [x] Create the corresponding DB schema and provide migration instructions of test/production databases.
+- [x] Fill in the `orms` controller located at 
 [`app/controllers/orms_controller.rb`](../app/controllers/orms_controller.rb).
-- [ ] Write corresponding `rspec` tests for the model.
+- [x] Write corresponding `rspec` tests for the model.
 
 ### To Xinjin:
 

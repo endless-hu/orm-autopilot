@@ -44,6 +44,8 @@ To run user stories:
 $ bundle exec cucumber
 ```
 
+You will find test coverage reports under `coverage/`. Currently, the test coverage is 100% for iteration 1. (We excluded `channels`, `jobs`, and `mailers` in the coverage counting since we did not involve them in our app. )
+
 ## Heroku Deployment Link:
 
 https://cryptic-shore-36909-e715a94c8071.herokuapp.com/
