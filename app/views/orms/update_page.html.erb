@@ -3,21 +3,29 @@
   <%= link_to 'history', history_orms_path  %>
 </header>
 
+<div id="summary-div">
+  <h2 id="summary">
+    <%= simple_format @chat.summary %>
+  </h3>
+</div>
+
+<%= form_tag orm_path(@chat), method: :put do %>
 <div id="update-page">
   <section class="left">
-    <%= form_tag orm_path(@chat), method: :put do %>
-      <h2 class="title">
-        ORM Code
-      </h2>
-      <div class="input-div">
-        <%= text_area_tag 'code' , @chat.code, rows: 10, placeholder: 'Please input your ORM code', class: 'code-input' ,
-          required: true %>
-      </div>
-      <div class="function">
-        <%= submit_tag 'Update' , value: 'Update' , class: 'btn btn-xs btn-primary' %>
-        <%= submit_tag 'Delete' , value: 'Delete' , class: 'btn btn-xs btn-primary' %>
-      </div>
-      <% end %>
+    <h2 class="title">
+      ORM Code
+    </h2>
+    <div class="input-div">
+      <%= text_area_tag 'code' , @chat.code, rows: 10, placeholder: 'Please input your ORM code', class: 'code-input' ,
+        required: true %>
+    </div>
+    <h2 class="title">
+      Programming Language
+    </h2>
+    <div class="input-div">
+      <%= text_field_tag 'language', @chat.language, placeholder: 'Please input your ORM Language', class: 'language-input' ,
+        required: true %>
+    </div>
   </section>
 
   <section class="right">
@@ -25,7 +33,12 @@
       Feedback
     </h2>
     <div class="feedback-div">
-      <%= @chat.feedback %>
+      <%= simple_format @chat.feedback %>
+    </div>
+    <div class="function">
+      <%= submit_tag 'Update' , value: 'Update' , class: 'btn btn-xs btn-primary' %>
+      <%= submit_tag 'Delete' , value: 'Delete' , class: 'btn btn-xs btn-primary' %>
     </div>
   </section>
 </div>
+<% end %>

@@ -4,10 +4,18 @@ header{
   margin: 20px;
 }
 
+#summary-div{
+  width: 100%;
+}
+
+#summary-div #summary{
+  margin: 10px 9%;;
+}
+
 #update-page{
   display: flex;
-  justify-content: space-around;
-  margin-top: 50px;
+  justify-content: start;
+  margin: 10px 8%;
 }
 
 #update-page .title {
@@ -17,6 +25,9 @@ header{
 #update-page .function {
   display: flex;
   justify-content: space-around;
+}
+#update-page .right{
+  margin-left: 12%;
 }
 
 #update-page .left .input-div,
@@ -29,12 +40,20 @@ header{
 
 #update-page .left .code-input{
   width: 500px;
-  height: 450px;
+  height: 400px;
+  padding: 5px;
+  overflow: auto;
+}
+#update-page .left .language-input{
+  width: 500px;
+  height: 30px;
+  padding: 5px;
 }
 
 #update-page .right .feedback-div{
   width: 500px;
-  height: 500px;
+  height: 450px;
+  overflow: auto;
 }
 
 .styled-table {
