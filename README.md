@@ -14,9 +14,20 @@ LLM-backed tool to optimize your ORM code!
 
 ## Setup Instructions
 
-This project uses Ruby 3.2.2. Please have the proper version of ruby installed.
+First, ensure that you are at the correct version of the repo. We will
+have **three(3)** tags:
 
-You may refer to the instructions from `rbenv` or `rvm` to install Ruby 3.2.2.
+- `iter1`
+- `iter2`
+- `final`
+
+Please run
+```bash
+$ git checkout <tag_name>
+```
+to checkout the correct version.
+
+This project uses Ruby 3.2.2. Please have the proper version of ruby installed. You may refer to the instructions from `rbenv` or `rvm` to install Ruby 3.2.2.
 
 Once Ruby is installed, run the following command to install all dependencies:
 
