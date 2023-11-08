@@ -14,13 +14,13 @@ Background: Users in the database
 Scenario: Unauthenticated user must log in
   Given an unauthenticated user
   When  the user tries to access "/"
-  Then  the user is redirected to the login page
+  Then  the user should be redirected to the login page
   When  the user tries to access "/user/30"
-  Then  the user is redirected to the login page
+  Then  the user should be redirected to the login page
   When  the user tries to access "/signup"
   Then  the user should be on the signup page
   When  the user tries to access the homepage of the user "test2@user.fake"
-  Then  the user is redirected to the login page
+  Then  the user should be redirected to the login page
 
 Scenario: User signs up for an account
   Given I am on the login page
