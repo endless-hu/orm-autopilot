@@ -30,6 +30,12 @@ Then /I should be on the review page for chat ID "(\d+)"/ do |id|
   expect(current_url).to match(%r{/orms/#{id}})
 end
 
+Then('I should be on the edit review page for {string} of the user {string}') do |review_title, email|
+  user = User.find_by(email: email)
+  review = user.orms.find_by(title: review_title)
+  expect(current_url).to eq(edit_user_orm_path(review))
+end
+
 Then /I should be on the edit review page for chat ID "(\d+)"/ do |id|
   expect(current_url).to match(%r{/orms/#{id}/edit})
 end
@@ -64,4 +70,8 @@ end
 
 And /I should see the "(.*)" button/ do |button|
   expect(page).to have_button(button)
+end
+
+And /I should see "(.*)"/ do |content|
+  expect(page).to have_content(content)
 end

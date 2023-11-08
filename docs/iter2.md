@@ -31,7 +31,9 @@ we should redirect it to the `/login` page.
 3. User passwords should be stored as hashes. When creating a user record in the user database, we should generate
 a **salt** randomly, append the salt to the plain-text password, hash it, then store it in the "password" column. 
 Any hash algorithms (MD5, SHA1, SHA256...) are acceptable.
-4. Every time we invoke ChatGPT APIs, we should check if the user provides its own API key, and prioritize the 
+4. The `User` model should provide a public method `login_as(user_email)` to help Cucumber to authenticate 
+a testing user. The mothod will set a token for the user identified by `user_email`.
+5. Every time we invoke ChatGPT APIs, we should check if the user provides its own API key, and prioritize the 
 user-provided API key.
 
 ### Page Description

@@ -12,11 +12,11 @@ Background: Users and ORM reviews in the database
       | test code 2  | No Bad Usage     | code2 | 2023-11-08 09:45:00 | test1@test.fake |
 
   Given the following users exist:
-      | email             | password | API key | salt |
+      | email             | password | api_key | salt |
       | test1@test.fake   | password | 123456  | 709  |
       | test2@user.fake   | password | 123456  | 685  |
 
-  Given a user authenticated as "test1@test.fake"
+  Given I am authenticated as "test1@test.fake"
 
 Scenario: view history reviews
   When I follow the "History" link
