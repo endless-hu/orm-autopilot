@@ -1,5 +1,16 @@
 World(AuthenticationHelpers)
 
+Given /I have stubbed the "generate_feedback" method of the class (.*)$/ do |class_name|
+  allow_any_instance_of(class_name).to 
+    receive(:generate_feedback).and_return('No bad usage of ORM detected!')
+end
+
+Given /I have stubbed the "generate_summary" method of the class (.*)$/ do |class_name|
+  # return a summary named "title-<random number>"
+  allow_any_instance_of(class_name).to 
+    receive(:generate_summary).and_return("title-#{rand(10000)}")
+end
+
 Given /the following users exist/ do |users_table| 
   users_table.hashes.each do |user|
     User.create!(user)
@@ -12,6 +23,7 @@ end
 
 Given /I am authenticated as "(.*)"/ do |email|
   User.login_as(email)
+  visit user_orms_path(user_id: cookies[:user_id])
 end
 
 Given /I am on the login page/ do

@@ -17,6 +17,8 @@ Background: Users and ORM reviews in the database
       | test2@user.fake   | password | 123456  | 685  |
 
   Given I am authenticated as "test1@test.fake"
+  Given I have stubbed the "generate_feedback" method of the class Chat
+  Given I have stubbed the "generate_summary" method of the class Chat
 
 Scenario: view history reviews
   When I follow the "History" link

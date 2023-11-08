@@ -33,7 +33,9 @@ a **salt** randomly, append the salt to the plain-text password, hash it, then s
 Any hash algorithms (MD5, SHA1, SHA256...) are acceptable.
 4. The `User` model should provide a public method `login_as(user_email)` to help Cucumber to authenticate 
 a testing user. The mothod will set a token for the user identified by `user_email`.
-5. Every time we invoke ChatGPT APIs, we should check if the user provides its own API key, and prioritize the 
+5. All ChatGPT-related API calls should be handled by the [`chat`](../app/models/chat.rb) model, so that I can
+stub out them in user stories.
+6. Every time we invoke ChatGPT APIs, we should check if the user provides its own API key, and prioritize the 
 user-provided API key.
 
 ### Page Description
@@ -47,16 +49,17 @@ user-provided API key.
 |   ...                       | ...                 |
 ```
 Note that each table entry will direct the user to the detail page of that code review.
+
 2. When a user fails to login, the login page should display a flash `Incorrect username/password`.
 3. When a user fails to sign up due to duplicated email, the sign up page should display a flash `Fail to sign up. Account already exists`.
-3. When a user successfully deletes a chat review, it will be redirected to the home page with a flash
+4. When a user successfully deletes a chat review, it will be redirected to the home page with a flash
 notice prompting that `chat "..." was deleted`.
 
 ## Tasks
 
 ### To @haonanw98
 
-1. Complete the model and controller of user login features.
+1. Create and fill in the model and controller of user login features.
 2. Implement the function of generating a title for a piece of ORM code.
 3. Adjust the prompt written by @Synthia-Li to better tune the feedback of ChatGPT.
 
