@@ -26,7 +26,7 @@ Scenario: view history reviews
 
 Scenario: submit a review
   When I follow the "New" link
-  Then I should be on the new review page of the user "test1@test.fake"
+  Then I should be on the new review page
   When I fill in the form with the ORM code "test 1"
   And I press "Submit"
   Then I should be on the review page for "test 1"
@@ -34,25 +34,25 @@ Scenario: submit a review
   And I should see the "Edit" button
 
 Scenario: update a review
-  Given I am on the review page for chat ID "1" of the user "test1@test.fake"
+  Given I am on the review page for chat ID "1"
   And I press "Edit"
-  Then I should be on the edit review page for chat ID "1" of the user "test1@test.fake"
+  Then I should be on the edit review page for chat ID "1"
   When I fill in the form with the ORM code "Update to test 1"
   And I press "Update"
-  Then I should be on the review page for chat ID "1" of the user "test1@test.fake"
+  Then I should be on the review page for chat ID "1"
   Then I should see the "Update to test 1" code
   And I should see the reviews
 
 Scenario: cancel an editing review
   And I follow the "code1" link
-  Then I should be on the review page for "code1" of the user "test1@test.fake"
+  Then I should be on the review page for "code1"
   And I press "Edit"
-  Then I should be on the edit review page for "code1" of the user "test1@test.fake"
+  Then I should be on the edit review page for "code1"
   When I fill in the form with the ORM code "Updates to code1"
   When I follow the "Cancel" link
   Then I should be on the homepage
   And I follow the "code1" link
-  Then I should be on the review page for "code1" of the user "test1@test.fake"
+  Then I should be on the review page for "code1"
   And I should not see the review "Updates to code1"
 
 Scenario: delete a review
