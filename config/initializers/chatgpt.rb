@@ -1,4 +1,6 @@
-require 'chatgpt/client'
+require "openai"
 
-api_key = Rails.application.credentials.gpt_key
-GptClient = ChatGPT::Client.new(api_key)
+GptClient = OpenAI::Client.new(
+  access_token: Rails.application.credentials.gpt_key,
+  request_timeout: 40
+)

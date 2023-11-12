@@ -1,3 +1,9 @@
+<div id="summary-div">
+  <h2 id="summary">
+    <%= simple_format @chat.summary %>
+  </h3>
+</div>
+
 <div id="update-page">
   <section class="left">
     <!-- Create a code block with title "ORM Code" and the content from @chat.code -->
@@ -7,8 +13,13 @@
     <div class="input-div code-input">
       <%= @chat.code %>
     </div>
-    <!-- Create a button with text "Edit" -->
-    <%= button_to 'Edit', edit_orm_path(@chat), method: :get, class: 'btn btn-xs btn-primary' %>    
+    <br>
+    <h2 class="title">
+      Programming Language
+    </h2>
+    <div class="input-div">
+      <%= @chat.language %>
+    </div>
   </section>
 
   <section class="right">
@@ -18,5 +29,7 @@
     <div class="feedback-div">
       <%= @chat.feedback %>
     </div>
+    <!-- Create a button with text "Edit" -->
+    <%= button_to 'Edit', edit_orm_path(@chat), method: :get, class: 'btn btn-xs btn-primary' %>
   </section>
 </div>
