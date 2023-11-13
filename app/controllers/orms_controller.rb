@@ -15,17 +15,17 @@ class OrmsController < ApplicationController
   end
 
   def create
-    feedback, summary = Chat.generate_feedback(params[:code], params[:language])
-    chat = Chat.create(code: params[:code], language: params[:language], feedback: feedback, summary: summary)
-    redirect_to orm_path(chat)
+    feedback = Chat.generate_feedback(params[:code], params[:language], Rails.application.credentials.gpt_key)
+    chat = Chat.create(code: params[:code], language: params[:language], feedback: feedback)
     flash[:notice] = 'Chat was successfully created.'
+    redirect_to orm_path(chat)
   end
 
   def update
-    feedback, summary = Chat.generate_feedback(params[:code], params[:language])
-    chat = Chat.create(code: params[:code], language: params[:language], feedback: feedback, summary: summary)
-    redirect_to orm_path(chat)
+    feedback = Chat.generate_feedback(params[:code], params[:language], Rails.application.credentials.gpt_key)
+    @chat.update(code: params[:code], language: params[:language], feedback: feedback)
     flash[:notice] = 'Chat was successfully updated.'
+    redirect_to orm_path(@chat)
   end
 
   # def destroy
