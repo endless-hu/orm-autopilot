@@ -8,7 +8,7 @@ class OrmsController < ApplicationController
   def show
 
   end
-  
+
   def new
   end
 
@@ -16,22 +16,28 @@ class OrmsController < ApplicationController
   end
 
   def create
-    # feedback = GptClient.completions(params[:code])["choices"].map { |c| c["text"] }.join
-    feedback = 'It is correct'
-    chat = Chat.create(code: params[:code], feedback: feedback)
-    redirect_to orm_path(chat.id)
+    feedback = Chat.generate_feedback(params[:code], params[:language], Rails.application.credentials.gpt_key)
+    chat = Chat.create(code: params[:code], language: params[:language], feedback: feedback)
+    flash[:notice] = 'Chat was successfully created.'
+    redirect_to orm_path(chat)
   end
 
   def update
-    # feedback = GptClient.completions(params[:code])["choices"].map { |c| c["text"] }.join
-    feedback = 'It is correct'
-    @chat.update(code: params[:code], feedback: feedback)
+    feedback = Chat.generate_feedback(params[:code], params[:language], Rails.application.credentials.gpt_key)
+    @chat.update(code: params[:code], language: params[:language], feedback: feedback)
+    flash[:notice] = 'Chat was successfully updated.'
     redirect_to orm_path(@chat)
   end
 
+  # def destroy
+  #   @chat.destroy
+  #   redirect_to "/orms", notice: 'Chat was successfully deleted.'
+  # end
+
   def destroy
     @chat.destroy
-    redirect_to "/orms", notice: 'Chat was successfully deleted.'
+    redirect_to "/orms"
+    flash[:notice] = 'Chat was successfully deleted.'
   end
 
   private
