@@ -1,0 +1,21 @@
+class SessionsController < ApplicationController
+  def new
+  end
+
+  def create
+    user = User.find_by(email: params[:session][:email])
+
+    if user && user.authenticate(params[:session][:password])
+      session[:user_id] = user.id
+      redirect_to orms_path
+    else
+      flash[:danger] = 'Oops! The email or password you entered doesn\'t match our records. Please try again.'
+      redirect_to login_path
+    end
+  end
+
+  def destroy
+    delete session[:user_id]
+    redirect_to login_path
+  end
+end

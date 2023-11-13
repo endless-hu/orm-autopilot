@@ -1,4 +1,5 @@
 class OrmsController < ApplicationController
+  before_action :require_login
   before_action :set_chat, only: %i[show edit update destroy]
   def index
     @chats = Chat.all.order(id: :desc)
@@ -37,5 +38,13 @@ class OrmsController < ApplicationController
 
   def set_chat
     @chat = Chat.find(params[:id])
+  end
+
+  def require_login
+    @current_user = User.find(session[:user_id]) if session[:user_id]
+    unless @current_user
+      flash[:alert] = 'You must be logged in to access this section'
+      redirect_to login_url
+    end
   end
 end

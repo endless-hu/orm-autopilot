@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  # Users routes
+  get 'signup', to: 'users#new'
+  post 'signup', to: 'users#create'
+
+  # Sessions routes
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
+
+  # ORMs routes
   resources :orms do
     collection do
       get :update_page
@@ -6,11 +16,6 @@ Rails.application.routes.draw do
     end
   end
 
-  root :to => redirect('/orms')
-
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-
-  # Defines the root path route ("/")
-  # root "posts#index"
+  # Root route
+  root to: redirect('/orms')
 end
