@@ -65,3 +65,11 @@ Scenario: delete a review
   Then I should be on the homepage
   And I should not see the review "test 1"
   And I should see "[code1] was deleted"
+
+Scenario: GPT API call times out and throws exception
+  Given I stubbed the "try_gen_feedback" method of the class Chat to raise an exception
+  When I follow the "New" link
+  When I fill in the form with the ORM code "test 1"
+  And I press "Submit"
+  Then I should be on the review page for "test 1"
+  Then I should see "Sorry, the GPT API call timed out. Please try again later."
