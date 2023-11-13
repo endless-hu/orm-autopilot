@@ -7,7 +7,7 @@ Feature: a basic workflow
 Background: Users and ORM reviews in the database
 
   Given the following reviews exist:
-      |  code        | feedback         | title | last updated        | user_email      |
+      |  code        | feedback         | title | last_updated        | user_email      |
       | test code 1  | Good             | code1 | 2023-11-07 14:30:00 | test1@test.fake |
       | test code 2  | No Bad Usage     | code2 | 2023-11-08 09:45:00 | test1@test.fake |
 

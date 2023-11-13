@@ -2,34 +2,29 @@
     <h1>Welcome to ORM Autopilot.</h1>
 </div>
 
-<!--
-<div class="mb-3">
-    <form>
-    <div class="form-group">
-        <label for="exampleFormControlTextarea1">Paste your code here:</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="15"></textarea>
-    </div>
-    </form>
-</div>h
-<div class="mb-3">
-    <button type="submit" class="btn btn-primary">Submit</button>
+<div id="summary-div">
+  <h2 id="summary">
+    <%= simple_format nil %>
+  </h3>
 </div>
--->
 
-<div id="update-page" class="mb-3">
+<%= form_tag orms_path do %>
+<div id="update-page">
   <section class="left">
-    <%= form_tag orms_path do %>
-      <h2 class="title">
-        ORM Code
-      </h2>
-      <div class="input-div">
-        <%= text_area_tag 'code' , nil, rows: 10, placeholder: 'Please input your ORM code', class: 'code-input' ,
-          required: true %>
-      </div>
-      <div class="function">
-        <%= submit_tag 'Submit' , class: 'btn btn-xs btn-primary' %>
-      </div>
-      <% end %>
+    <h2 class="title">
+      ORM Code
+    </h2>
+    <div class="input-div">
+      <%= text_area_tag 'code', nil, rows: 10, placeholder: 'Please input your ORM code', class: 'code-input' ,
+        required: true %>
+    </div>
+    <h2 class="title">
+      Programming Language
+    </h2>
+    <div class="input-div">
+      <%= text_field_tag 'language', nil, placeholder: 'Please input your ORM Language', class: 'language-input' ,
+        required: true %>
+    </div>
   </section>
 
   <section class="right">
@@ -37,7 +32,10 @@
       Feedback
     </h2>
     <div class="feedback-div">
-
+    </div>
+    <div class="function">
+      <%= submit_tag 'Submit' , class: 'btn btn-xs btn-primary' %>
     </div>
   </section>
 </div>
+<% end %>
