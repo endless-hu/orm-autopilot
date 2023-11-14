@@ -16,9 +16,7 @@ Scenario: User fails to update its password
   And   I press "Update"
   Then  I should be on the edit page for the user "test1@test.fake"
   And   I should see "Incorrect Old Password"
-
-Scenario: User successfully update its password
-
+  
 Scenario: User password was not stored as plain text
   When  I follow the "Update User Info" link
   Then  I should be on the edit page for the user "test1@test.fake"

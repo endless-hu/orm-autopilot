@@ -69,7 +69,7 @@ Scenario: cancel an editing review
 
 
 Scenario: GPT API call times out and throws exception
-  Given I stubbed the "try_gen_feedback" method of the class Chat to raise an exception
+  Given I stubbed the "try_gen_feedback" method of the class Chat to raise an exception "Sorry, the GPT API call timed out. Please try again later."
   Given I have registered as "test1@test.fake" and logged in
   When I follow the "New" link
   When I fill in the form with the ORM code "test 1"
