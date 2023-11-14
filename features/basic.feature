@@ -30,6 +30,8 @@ Scenario: delete a review
   And I should not see the review "test 1"
 
 Scenario: submit a review
+  Given I have stubbed the "generate_feedback" method of the class Chat
+  Given I have stubbed the "generate_summary" method of the class Chat
   Given I have registered as "test1@test.fake" and logged in
   When I follow the "New" link
   Then I should be on the new review page for the user "test1@test.fake"
@@ -40,6 +42,8 @@ Scenario: submit a review
   And I should see the "Edit" button
 
 Scenario: update a review
+  Given I have stubbed the "generate_feedback" method of the class Chat
+  Given I have stubbed the "generate_summary" method of the class Chat
   Given I have registered as "test1@test.fake" and logged in
   Given I am on the review page for chat ID "1" for email "test1@test.fake"
   And I press "Edit"
@@ -66,8 +70,9 @@ Scenario: cancel an editing review
 
 Scenario: GPT API call times out and throws exception
   Given I stubbed the "try_gen_feedback" method of the class Chat to raise an exception
+  Given I have registered as "test1@test.fake" and logged in
   When I follow the "New" link
   When I fill in the form with the ORM code "test 1"
   And I press "Submit"
-  Then I should be on the review page for "test 1"
+  Then I should be on the review page for "test 1" for "test1@test.fake"
   Then I should see "Sorry, the GPT API call timed out. Please try again later."
