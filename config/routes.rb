@@ -8,12 +8,20 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
+  get 'orms', to: 'orms#redirect_to_user_orms'
+  get 'orms/new', to: 'orms#redirect_to_user_orms_new'
+  get 'orms/edit', to: 'orms#redirect_to_user_orms_edit'
+
   # ORMs routes
   resources :orms do
     collection do
       get :update_page
       get :history
     end
+  end
+
+  resources :users do
+    resources :orms
   end
 
   # Root route

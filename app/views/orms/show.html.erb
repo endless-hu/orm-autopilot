@@ -30,6 +30,6 @@
       <%= @chat.feedback %>
     </div>
     <!-- Create a button with text "Edit" -->
-    <%= button_to 'Edit', edit_orm_path(@chat), method: :get, class: 'btn btn-xs btn-primary' %>
+    <%= button_to 'Edit', edit_user_orm_path(@current_user, @chat), method: :get, class: 'btn btn-xs btn-primary' %>
   </section>
 </div>

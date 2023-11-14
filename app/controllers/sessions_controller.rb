@@ -7,15 +7,13 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
-      redirect_to orms_path
+      redirect_to user_orms_path(user_id: user.id)
     else
-      flash[:danger] = 'Oops! The email or password you entered doesn\'t match our records. Please try again.'
+      flash[:alert] = 'Oops! The email or password you entered doesn\'t match our records. Please try again.'
       redirect_to login_path
     end
   end
 
   def destroy
-    delete session[:user_id]
-    redirect_to login_path
   end
 end

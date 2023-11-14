@@ -1,10 +1,10 @@
 <div id="summary-div">
   <h2 id="summary">
-    <%= simple_format @chat.summary %>
+    <%= simple_format @chat.title %>
   </h3>
 </div>
 
-<%= form_tag orm_path(@chat), method: :put do %>
+<%= form_tag user_orm_path(@current_user, @chat), method: :put do %>
 <div id="update-page">
   <section class="left">
       <h2 class="title">
@@ -33,7 +33,7 @@
     </div>
     <div class="function">
       <%= submit_tag 'Update' , value: 'Update' , class: 'btn btn-xs btn-primary' %>
-      <%= link_to 'Delete', orm_path(@chat), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %>
+      <%= link_to 'Delete', user_orm_path(@current_user), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %>
       <%= link_to 'Cancel', orms_path, :class => 'btn btn-secondary' %>
     </div>
   </section>

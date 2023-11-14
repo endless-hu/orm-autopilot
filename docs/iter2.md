@@ -14,10 +14,10 @@ This iteration will make a fully funtional product. We are going to:
 1. Given an unauthenticated user, any requests to our app will be redirected to `/login` page to require log in.
 2. From the `/login` page, a user may sign up by following a "Sign Up" link. The link will redirect 
 the user to `/signup` page, which should be handled by `users_controller#new`.
-3. The `/signup` page should provide a form with **email, password, and API key**(optional). When a user finishes
+3. The `/signup` page should provide a form with **email, password**. When a user finishes
 sign-up and clicks "Submit", a new user record should be added to the database, and the user should be redirected to
 its own home page `/user/{user_id}/orms`.
-4. In the user's home page, there should be a link for the user to update its password or API keys. 
+4. In the user's home page, there should be a link for the user to update its password. 
 It will be redirected to `/user/{user_id}/edit` page to submit the relevant forms, which will be handled by
 `users_controller#edit`.
 5. For code review related operations, we follow the classic RESTful design as 
@@ -62,6 +62,7 @@ notice prompting that `chat "..." was deleted`.
 1. Create and fill in the model and controller of user login features.
 2. Implement the function of generating a title for a piece of ORM code.
 3. Adjust the prompt written by @Synthia-Li to better tune the feedback of ChatGPT.
+4. Implement new routes
 
 ### To @Synthia-Li
 

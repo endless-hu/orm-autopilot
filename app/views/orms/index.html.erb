@@ -24,7 +24,7 @@
     <tbody>
       <% @chats.each do |chat| %>
       <tr class="">
-        <td><%= link_to chat.id, orm_path(chat.id) %></td>
+        <td><%= link_to chat.id, user_orm_path(@current_user, chat.id), id: "chat-#{chat.id}" %></td>
         <td><%= simple_format chat.code %></td>
         <td><%= simple_format chat.feedback %></td>
       </tr>

@@ -21,9 +21,21 @@ Given /an unauthenticated user/ do
   # do nothing
 end
 
-Given /I am authenticated as "(.*)"/ do |email|
-  User.login_as(email)
-  visit user_orms_path(user_id: cookies[:user_id])
+Given /I have registered as "(.*)" with password "(.*)"/ do |email, password|
+  visit signup_path
+  fill_in 'email', with: email
+  fill_in 'password', with: password
+  click_button 'Sign Up'
+end
+
+Given /I have registered as "(.*)" and logged in/ do |email|
+  visit signup_path
+  fill_in 'email', with: email
+  fill_in 'password', with: "randompassword"
+  click_button 'Sign Up'
+  fill_in 'email', with: email
+  fill_in 'password', with: "randompassword"
+  click_button 'Log In'
 end
 
 Given /I am on the login page/ do
@@ -39,15 +51,15 @@ When /I try to access the homepage of the user "(.*)"/ do |email|
   visit user_orms_path(user)
 end
 
-Then /I should be (on|redirected to) the login page/ do
+Then /I should be (on|redirected to) the login page/ do |page_state|
   expect(current_url).to match(%r{/login})
 end
 
-Then /I should be (on|redirected to) the signup page/ do
+Then /I should be (on|redirected to) the signup page/ do |page_state|
   expect(current_url).to match(%r{/signup})
 end
 
-Then /I should be (on|redirected to) the homepage of the user "(.*)"/ do |email|
+Then /I should be (on|redirected to) the homepage of the user "(.*)"/ do |page_state, email|
   user = User.find_by(email: email)
   expect(current_url).to match(%r{/users/#{user.id}/orms})
 end

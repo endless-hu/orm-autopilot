@@ -7,15 +7,15 @@ Feature: User authentication
 Background: Users in the database
   
     Given the following users exist:
-      | email             | password | api_key | salt |
-      | test1@test.fake   | password | 123456  | 709  |
-      | test2@user.fake   | password | 123456  | 685  |
+      | email             | password_digest |
+      | test1@test.fake   | password_digest |
+      | test2@user.fake   | password_digest |
 
 Scenario: Unauthenticated user must log in
   Given an unauthenticated user
   When  I try to access "/"
   Then  I should be redirected to the login page
-  When  I try to access "/user/30"
+  When  I try to access "/users/30"
   Then  I should be redirected to the login page
   When  I try to access "/signup"
   Then  I should be on the signup page
@@ -24,41 +24,41 @@ Scenario: Unauthenticated user must log in
 
 Scenario: User signs up for an account
   Given I am on the login page
-  When  I follow the "Sign Up" link
+  When  I follow the "signup-link" link
   Then  I should be redirected to the signup page
   And   I fill in the email with "new.user@test.fake"
   And   I fill in the password with "pswd"
-  And   I press "Submit"
-  Then  I should be on the homepage of the user "new.user@test.fake"
+  And   I press "Sign Up"
+  Then  I should be redirected to the login page
 
 Scenario: User cannot sign up for an existing account
-  Given I am on the login page
-  When  I follow the "Sign Up" link
+  Given I have registered as "new.user@test.fake" with password "pswd"
+  When  I follow the "signup-link" link
   Then  I should be redirected to the signup page
   And   I fill in the email with "new.user@test.fake"
   And   I fill in the password with "yetanotherpswd"
-  And   I press "Submit"
+  And   I press "Sign Up"
   Then  I should be on the signup page
-  And   I should see "Fail to sign up. Account already exists"
+  And   I should see "Fail to sign up. Account already exists!"
 
 Scenario: User fails to login
-  Given I am on the login page
+  Given I have registered as "new.user@test.fake" with password "pswd"
   And   I fill in the email with "new.user@test.fake"
   And   I fill in the password with "yetanotherpswd"
   And   I press "Log In"
   Then  I should be redirected to the login page
-  And   I should see "Incorrect username/password"
+  And   I should see "Oops! The email or password you entered doesn't match our records. Please try again."
 
 Scenario: User login
-  Given I am on the login page
+  Given I have registered as "new.user@test.fake" with password "pswd"
   And   I fill in the email with "new.user@test.fake"
   And   I fill in the password with "pswd"
   And   I press "Log In"
-  Then  I should be on the homepage of the user "new.user@test.fake"
+  Then  I should be redirected to the homepage of the user "new.user@test.fake"
 
 Scenario: Authenticated users cannot access other users' resource
-  Given I am authenticated as "test1@test.fake"
+  Given I have registered as "new.user@test.fake" and logged in
   When  I try to access "/"
-  Then  I should be redirected to the homepage of the user "test1@test.fake"
+  Then  I should be redirected to the homepage of the user "new.user@test.fake"
   When  I try to access the homepage of the user "test2@user.fake"
   Then  I should be redirected to the login page

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_12_152824) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_14_092145) do
   create_table "chats", force: :cascade do |t|
     t.string "code"
     t.string "feedback"
@@ -18,7 +18,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_12_152824) do
     t.datetime "updated_at", null: false
     t.string "language"
     t.string "title"
-    t.string "user_email"
+    t.string "user_id"
     t.datetime "last_updated"
   end
 
