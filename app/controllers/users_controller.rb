@@ -23,6 +23,22 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user && @user.authenticate(params[:password])
+      @user.update(password_digest: params[:new_password])
+      flash[:notice] = 'User info was successfully updated.'
+      redirect_to user_orms_path(@user)
+    else
+      flash[:alert] = 'Wrong password! Fail to update user info.'
+      redirect_to edit_user_path(@user)
+    end
+  end
+
   private
 
   def user_params

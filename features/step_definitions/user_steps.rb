@@ -53,7 +53,7 @@ Then /I should be (on|redirected to) the homepage of the user "(.*)"/ do |page_s
   expect(current_url).to match(%r{/users/#{user.id}/orms})
 end
 
-Then /I should be (on|redirected to) the edit page for the user "(.*)"/ do |email|
+Then /I should be (on|redirected to) the edit page for the user "(.*)"/ do |nop, email|
   user = User.find_by(email: email)
   expect(current_url).to match(%r{/users/#{user.id}/edit})
 end

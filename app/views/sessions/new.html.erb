@@ -8,12 +8,8 @@
 <div class="login-container">
   <h1>Login</h1>
 
-  <% if flash[:alert] %>
-    <div class="alert">
-      <%= flash[:alert] %>
-    </div>
-  <% end %>
-
+  <%= render 'flash' %>
+  
   <%= form_with(scope: :session, url: login_path, local: true) do |form| %>
     <div class="form-group">
       <%= form.label :email %>
