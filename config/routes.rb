@@ -10,7 +10,6 @@ Rails.application.routes.draw do
 
   get 'orms', to: 'orms#redirect_to_user_orms'
   get 'orms/new', to: 'orms#redirect_to_user_orms_new'
-  get 'orms/edit', to: 'orms#redirect_to_user_orms_edit'
 
   # ORMs routes
   resources :orms do
