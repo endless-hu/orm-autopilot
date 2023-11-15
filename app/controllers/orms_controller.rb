@@ -42,13 +42,8 @@ class OrmsController < ApplicationController
 
   def destroy
     @chat.destroy
-    redirect_to "/orms", notice: 'Chat was successfully deleted.'
-  end
-
-  def destroy
-    @chat.destroy
     redirect_to "/orms"
-    flash[:notice] = 'Chat was successfully deleted.'
+    flash[:notice] = "Chat was successfully deleted."
   end
 
   private

@@ -29,6 +29,8 @@ class Chat < ApplicationRecord
           model: "gpt-3.5-turbo", # Required.
           messages: [{ role: "user", content: content1}], # Required.
       })
+    # puts the type of response1
+    puts response1.class
     feedback = response1.dig("choices", 0, "message", "content")
   end
 end

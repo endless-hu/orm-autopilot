@@ -41,6 +41,11 @@ Scenario: User cannot sign up for an existing account
   Then  I should be on the signup page
   And   I should see "Fail to sign up. Account already exists!"
 
+Scenario: User fails to sign up due to server DB's error
+  Given I stubbed the "save" method of the class User to return "false"
+  Given I have registered as "new.user@test.fake" with password "pswd"
+  And   I should see "Register failed!"
+
 Scenario: User fails to login
   Given I have registered as "new.user@test.fake" with password "pswd"
   And   I fill in the email with "new.user@test.fake"
