@@ -7,9 +7,8 @@ Given /the following reviews exist/ do |reviews_table|
 end
 
 Given /I stubbed the "(.*)" method of the class (.*) to raise an exception "(.*)"/ do |method, klass, exception|
-  klass.constantize.stub(method).and_raise(exception)
+  klass.constantize.any_instance.stub(method).and_raise(exception)
 end
-
 
 Given /I have stubbed the "generate_feedback" method of the class (.*)$/ do |class_name|
   Chat.stub(:generate_feedback).and_return('No bad usage of ORM detected!')

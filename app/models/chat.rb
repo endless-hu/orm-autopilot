@@ -12,10 +12,10 @@ class Chat < ApplicationRecord
     feedback
   end
 
-  def generate_summary(code, lang, api_key)
-    # Implement ChatGPT call here!
-    # Remember to return the summary
-  end
+  # def generate_summary(code, lang, api_key)
+  #   # Implement ChatGPT call here!
+  #   # Remember to return the summary
+  # end
 
   private
   def self.try_gen_feedback(code, lang, api_key)
