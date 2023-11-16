@@ -14,6 +14,8 @@ LLM-backed tool to optimize your ORM code!
 
 ## Setup Instructions
 
+### Checkout The Correct Version And Environment Setup
+
 First, ensure that you are at the correct version of the repo. We will
 have **three(3)** tags:
 
@@ -29,6 +31,8 @@ to checkout the correct version.
 
 This project uses Ruby 3.2.2. Please have the proper version of ruby installed. You may refer to the instructions from `rbenv` or `rvm` to install Ruby 3.2.2.
 
+### Run The Server
+
 Once Ruby is installed, run the following command to install all dependencies:
 
 ```bash
@@ -43,6 +47,8 @@ $ rails server
 
 The application is up and listening at http://127.0.0.1:3000
 
+### Run The Tests
+
 To run unit tests:
 
 ```bash
@@ -55,15 +61,13 @@ To run user stories:
 $ bundle exec cucumber
 ```
 
-You will find test coverage reports under `coverage/`. Currently, the test coverage is 100% for iteration 1. (We excluded `channels`, `jobs`, and `mailers` in the coverage counting since we did not involve them in our app. )
+You will find test coverage reports under `coverage/`. Currently, the test coverage is 100% for iteration 2. (We excluded `channels`, `jobs`, and `mailers` in the coverage counting since we did not involve them in our app. )
 
 ## Heroku Deployment Link:
 
 https://cryptic-shore-36909-e715a94c8071.herokuapp.com/
 
 ## Repo Link
-
-**This is a private repo! Please ask Zhijing Hu(@endless-hu) to make it public or add you as collaborators.**
 
 https://github.com/endless-hu/orm-autopilot
 
