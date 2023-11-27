@@ -67,3 +67,10 @@ Scenario: Authenticated users cannot access other users' resource
   Then  I should be redirected to the homepage of the user "new.user@test.fake"
   When  I try to access the homepage of the user "test2@user.fake"
   Then  I should be redirected to the login page
+
+Scenario: Authenticated users cannot access other users' resource 2
+  Given I have registered as "new.user@test.fake" and logged in
+  When  I follow the "New" link
+  Then  I should be on the new review page for the user "new.user@test.fake"
+  When  I try to access "/users/1/orms/new"
+  Then  I should be redirected to the login page
