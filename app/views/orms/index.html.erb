@@ -12,17 +12,17 @@
   <table class="styled-table">
     <thead>
       <tr>
-        <th scope="col">Chat ID</th>
-        <th scope="col">ORM Code</th>
-        <th scope="col">Feedback</th>
+        <th scope="col" class="w-15 text-center">Chat ID</th>
+        <th scope="col" class="text-center">ORM Code</th>
+        <th scope="col" class="w-20 text-center">Creation </th>
       </tr>
     </thead>
     <tbody>
       <% @chats.each do |chat| %>
       <tr class="">
-        <td><%= link_to chat.id, user_orm_path(@current_user, chat.id), id: "chat-#{chat.id}" %></td>
-        <td><%= simple_format chat.code %></td>
-        <td><%= simple_format chat.feedback %></td>
+        <td class="w-15 text-center"><%= link_to chat.id, user_orm_path(@current_user, chat.id), id: "chat-#{chat.id}" %></td>
+        <td class="text-center"><%= simple_format chat.code %></td>
+        <td class="w-20 text-center"><%= chat.created_at.strftime('%Y-%m-%d %H:%M') %></td>
       </tr>
       <% end %>
     </tbody>

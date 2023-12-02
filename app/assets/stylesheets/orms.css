@@ -14,8 +14,10 @@ header{
 
 #update-page{
   display: flex;
-  justify-content: start;
-  margin: 10px 8%;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+  /* margin: 10px 8%; */
 }
 
 #update-page .title {
@@ -26,34 +28,44 @@ header{
   display: flex;
   justify-content: space-around;
 }
+
+#update-page .left,
 #update-page .right{
-  margin-left: 12%;
+  width: 45%;
+  min-width: 500px;
 }
 
 #update-page .left .input-div,
-#update-page .right .feedback-div,
-#update-page .btn {
-  border: solid 1px green;
-  padding: 10px;
-  margin: 10px;
+#update-page .right .feedback-div {
+  border: solid 2px #009879;
+  padding: 3px;
+  margin: 5px;
+  min-height: 40px;
+}
+#update-page .btn{
+  margin-top: 10px;
 }
 
 #update-page .left .code-input{
-  width: 500px;
+  width: 100%;
   height: 400px;
   padding: 5px;
   overflow: auto;
 }
 #update-page .left .language-input{
-  width: 500px;
+  width: 100%;
   height: 30px;
   padding: 5px;
 }
 
 #update-page .right .feedback-div{
-  width: 500px;
-  height: 470px;
+  width: 100%;
+  height: 460px;
   overflow: auto;
+}
+
+#update-page .show-language{
+  margin-top: 25px;
 }
 
 .styled-table {
@@ -61,7 +73,7 @@ header{
   margin: 25px auto;
   font-size: 0.9em;
   font-family: sans-serif;
-  min-width: 400px;
+  min-width: 90%;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -74,7 +86,7 @@ header{
 .styled-table th,
 .styled-table td {
     padding: 12px 15px;
-    min-width: 400px;
+    min-width: 20%;
 }
 
 .styled-table tbody tr {
@@ -92,4 +104,12 @@ header{
 .styled-table tbody tr.active-row {
   font-weight: bold;
   color: #009879;
+}
+
+.w-15{
+  width: 15%;
+}
+
+.w-20{
+  width: 20%;
 }
