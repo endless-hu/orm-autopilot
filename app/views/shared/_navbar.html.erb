@@ -14,5 +14,10 @@
         </li>
       </ul>
     </div>
+    <% if @current_user %>
+      <span class="relative z-0 inline-flex shadow-sm rounded-md">
+        <%= button_to "Logout", logout_path, method: :delete, class: "relative w-full inline-flex justify-center text-center px-3 py-1 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none" %>
+      </span>
+    <% end %>
   </div>
 </nav>
