@@ -14,24 +14,24 @@
     <h2 class="title">
       ORM Code
     </h2>
-    <div class="input-div">
+    <div class="input-div card">
       <%= text_area_tag 'code', nil, rows: 10, placeholder: 'Please input your ORM code', class: 'code-input' ,
         required: true %>
     </div>
     <h2 class="title">
       Programming Language
     </h2>
-    <div class="input-div">
+    <div class="input-div card">
       <%= text_field_tag 'language', nil, placeholder: 'Please input your ORM Language', class: 'language-input' ,
         required: true %>
     </div>
   </section>
 
-  <section class="right">
+  <section class="right ">
     <h2 class="title">
       Feedback
     </h2>
-    <div class="feedback-div">
+    <div class="feedback-div card">
     </div>
     <div class="function">
       <%= submit_tag 'Submit' , class: 'btn btn-xs btn-primary' %>
