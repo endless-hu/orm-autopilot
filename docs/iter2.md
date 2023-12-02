@@ -62,7 +62,7 @@ notice prompting that `chat "..." was deleted`.
 1. Create and fill in the model and controller of user login features.
 2. Implement the function of generating a title for a piece of ORM code.
 3. Adjust the prompt written by @Synthia-Li to better tune the feedback of ChatGPT.
-4. Implement new routes
+4. Implement new routes.
 
 ### To @Synthia-Li
 
@@ -77,3 +77,5 @@ Implement the API call to generate feedback for ORM code.
 
 1. Write Cucumber user stories to cover most scenarios. 
 2. Write docs to architect the project.
+3. Deploy to Heroku.
+4. Refactor and adjust codes to ensure tests to pass.

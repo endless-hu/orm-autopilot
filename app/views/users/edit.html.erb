@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Update User Info</title>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+  <div class="signup-container">
+    <h1>Update User Info For User "<%= @user.send(:email) %>"</h1>
+
+    <%= render 'flash' %>
+
+    <%= form_tag user_path(@user), method: :put do %>
+      <div class="form-group">
+        <%= label_tag 'password', 'Old Password' %>
+        <%= password_field_tag 'password', nil, class: 'form-control', required: true %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag 'new_password', 'New Password' %>
+        <%= password_field_tag 'new_password', nil, class: 'form-control', required: true %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag 'api_key', 'API Key' %>
+        <%= text_field_tag 'api_key', nil, class: 'form-control', required: false %>
+      </div>
+
+      <div class="form-group">
+        <%= submit_tag 'Update', class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</body>
+</html>

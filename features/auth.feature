@@ -41,6 +41,11 @@ Scenario: User cannot sign up for an existing account
   Then  I should be on the signup page
   And   I should see "Fail to sign up. Account already exists!"
 
+Scenario: User fails to sign up due to server DB's error
+  Given I stubbed the "save" method of the class User to return "false"
+  Given I have registered as "new.user@test.fake" with password "pswd"
+  And   I should see "Register failed!"
+
 Scenario: User fails to login
   Given I have registered as "new.user@test.fake" with password "pswd"
   And   I fill in the email with "new.user@test.fake"
@@ -61,4 +66,11 @@ Scenario: Authenticated users cannot access other users' resource
   When  I try to access "/"
   Then  I should be redirected to the homepage of the user "new.user@test.fake"
   When  I try to access the homepage of the user "test2@user.fake"
+  Then  I should be redirected to the login page
+
+Scenario: Authenticated users cannot access other users' resource 2
+  Given I have registered as "new.user@test.fake" and logged in
+  When  I follow the "New" link
+  Then  I should be on the new review page for the user "new.user@test.fake"
+  When  I try to access "/users/1/orms/new"
   Then  I should be redirected to the login page

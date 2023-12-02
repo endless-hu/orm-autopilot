@@ -11,10 +11,6 @@ class OrmsController < ApplicationController
     redirect_to new_user_orm_path(@current_user)
   end
 
-  def redirect_to_user_orms_edit
-    redirect_to edit_user_orm_path(@current_user, @chat)
-  end
-
   def index
     # only display chats that belong to the current user
     @chats = Chat.where(user_id: session[:user_id]).order(id: :desc)
@@ -47,7 +43,7 @@ class OrmsController < ApplicationController
   def destroy
     @chat.destroy
     redirect_to "/orms"
-    flash[:notice] = "Chat ##{@chat.id} was successfully deleted."
+    flash[:notice] = "Chat was successfully deleted."
   end
 
   private

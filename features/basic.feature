@@ -54,6 +54,17 @@ Scenario: update a review
   Then I should see the "Update to test 1" code
   And I should see the reviews
 
+Scenario: delete a review
+ Given I have registered as "test1@test.fake" and logged in
+ When I follow the "History" link
+  And I follow the "chat-1" link
+  Then I should be on the review page for "test code 1" for "test1@test.fake"
+  And I press "Edit"
+  Then I should be on the edit review page for chat ID "1" for email "test1@test.fake"
+  And I follow the "Delete" link
+  Then I should be on the homepage of the user "test1@test.fake"
+  And I should see "Chat was successfully deleted."
+
 Scenario: cancel an editing review
  Given I have registered as "test1@test.fake" and logged in
  When I follow the "History" link
@@ -67,9 +78,8 @@ Scenario: cancel an editing review
   And I follow the "chat-1" link
   Then I should not see the review "Updates to code1"
 
-
 Scenario: GPT API call times out and throws exception
-  Given I stubbed the "try_gen_feedback" method of the class Chat to raise an exception
+  Given I stubbed the "chat" method of the class OpenAI::Client to raise an exception "Sorry, the GPT API call timed out. Please try again later."
   Given I have registered as "test1@test.fake" and logged in
   When I follow the "New" link
   When I fill in the form with the ORM code "test 1"
