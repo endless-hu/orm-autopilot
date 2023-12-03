@@ -10,18 +10,14 @@
       <h2 class="title">
         ORM Code
       </h2>
+      <div class="input-div card">
+        <%= select_tag 'language', options_for_select(['C++', 'Ruby', 'Python', 'JavaScript', 'Java', 'C#', 'PHP'], @chat.language), 
+        prompt: 'Please select your ORM Language', class: 'language-input', id: 'language-selection', required: true %>
+      </div>
       <div class="input-div">
         <%= text_area_tag 'code' , @chat.code, rows: 10, placeholder: 'Please input your ORM code', class: 'code-input' ,
           required: true %>
       </div>
-      <h2 class="title">
-        Programming Language
-      </h2>
-      <div class="input-div">
-        <%= text_field_tag 'language', @chat.language, placeholder: 'Please input your ORM Language', class: 'language-input' ,
-          required: true %>
-      </div>
-      <% end %>
   </section>
 
   <section class="right">
@@ -38,3 +34,4 @@
     </div>
   </section>
 </div>
+<% end %>

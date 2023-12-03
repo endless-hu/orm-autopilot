@@ -57,6 +57,10 @@ When /I follow the "(.*)" link/ do |link|
   click_link(link)
 end
 
+When /I select "(.*)" from "(.*)"/ do |option, field|
+  select(option, from: field)
+end
+
 When /I fill in the form with the ORM code "(.*)"/ do |code|
   fill_in 'code', with: code
 end

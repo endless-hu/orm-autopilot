@@ -35,6 +35,7 @@ Scenario: submit a review
   Given I have registered as "test1@test.fake" and logged in
   When I follow the "New" link
   Then I should be on the new review page for the user "test1@test.fake"
+  When I select "Python" from "language"
   When I fill in the form with the ORM code "test 1"
   And I press "Submit"
   Then I should be on the review page for "test 1" for "test1@test.fake"

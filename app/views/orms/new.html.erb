@@ -9,21 +9,18 @@
 </div>
 
 <%= form_tag orms_path do %>
-<div id="update-page">
+<div id="update-page" style="margin-bottom: 100px;">
   <section class="left">
     <h2 class="title">
       ORM Code
     </h2>
     <div class="input-div card">
-      <%= text_area_tag 'code', nil, rows: 10, placeholder: 'Please input your ORM code', class: 'code-input' ,
-        required: true %>
+      <%= select_tag 'language', options_for_select(['C++', 'Ruby', 'Python', 'JavaScript', 'Java', 'C#', 'PHP']), 
+      prompt: 'Please select your ORM Language', class: 'language-input', id: 'language-selection', required: true %>
     </div>
-    <h2 class="title">
-      Programming Language
-    </h2>
     <div class="input-div card">
-      <%= text_field_tag 'language', nil, placeholder: 'Please input your ORM Language', class: 'language-input' ,
-        required: true %>
+      <%= text_area_tag 'code', nil, rows: 100, placeholder: 'Please select your programming language first.', class: 'code-input' ,
+        required: true%>
     </div>
   </section>
 
@@ -39,3 +36,5 @@
   </section>
 </div>
 <% end %>
+
+<%= javascript_include_tag 'code-support' %>
