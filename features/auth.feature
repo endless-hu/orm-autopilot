@@ -74,3 +74,13 @@ Scenario: Authenticated users cannot access other users' resource 2
   Then  I should be on the new review page for the user "new.user@test.fake"
   When  I try to access "/users/1/orms/new"
   Then  I should be redirected to the login page
+
+Scenario: User logs out
+  Given I have registered as "new.user@test.fake" and logged in
+  When  I press "Logout"
+  Then  I should be redirected to the login page
+  And   I should see "Logged out"
+  When  I try to access "/"
+  Then  I should be redirected to the login page
+  When  I try to access the homepage of the user "new.user@test.fake"
+  Then  I should be redirected to the login page
