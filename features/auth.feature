@@ -24,7 +24,7 @@ Scenario: Unauthenticated user must log in
 
 Scenario: User signs up for an account
   Given I am on the login page
-  When  I follow the "signup-link" link
+  When  I follow the "Sign Up" link
   Then  I should be redirected to the signup page
   And   I fill in the email with "new.user@test.fake"
   And   I fill in the password with "pswd"
@@ -33,7 +33,7 @@ Scenario: User signs up for an account
 
 Scenario: User cannot sign up for an existing account
   Given I have registered as "new.user@test.fake" with password "pswd"
-  When  I follow the "signup-link" link
+  When  I follow the "Sign Up" link
   Then  I should be redirected to the signup page
   And   I fill in the email with "new.user@test.fake"
   And   I fill in the password with "yetanotherpswd"
