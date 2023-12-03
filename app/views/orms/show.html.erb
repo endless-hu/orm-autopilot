@@ -11,7 +11,7 @@
       ORM Code
     </h2>
     <div class="input-div code-input card">
-      <%= @chat.code %>
+    <pre><code><%= @chat.code %></code></pre>
     </div>
     <h2 class="title show-language">
       Programming Language
@@ -32,3 +32,10 @@
     <%= button_to 'Edit', edit_user_orm_path(@current_user, @chat), method: :get, class: 'btn btn-xs btn-primary' %>
   </section>
 </div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+<script>
+  // Call the highlight.js function to highlight all code blocks on the page
+  hljs.initHighlightingOnLoad();
+</script>

@@ -21,7 +21,7 @@
       <% @chats.each do |chat| %>
       <tr class="">
         <td class="w-15 text-center"><%= link_to chat.id, user_orm_path(@current_user, chat.id), id: "chat-#{chat.id}" %></td>
-        <td class="text-center"><%= simple_format chat.code %></td>
+        <td class="text-center"><%= simple_format chat.code.lines.first+"..." %></td>
         <td class="w-20 text-center"><%= chat.created_at.strftime('%Y-%m-%d %H:%M') %></td>
       </tr>
       <% end %>
