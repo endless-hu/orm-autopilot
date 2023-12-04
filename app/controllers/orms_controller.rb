@@ -35,7 +35,7 @@ class OrmsController < ApplicationController
 
   def create
     feedback = Chat.generate_feedback(params[:code], params[:language], Rails.application.credentials.gpt_key)
-    @chat = Chat.create(code: params[:code], language: params[:language], feedback: feedback, user_id: session[:user_id], title: 'test')
+    @chat = Chat.create(code: params[:code], language: params[:language], feedback: feedback, user_id: session[:user_id], title: ' ')
     flash[:notice] = 'Chat was successfully created.'
     redirect_to user_orm_path(@current_user, @chat)
   end
