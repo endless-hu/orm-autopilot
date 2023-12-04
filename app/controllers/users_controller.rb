@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user && @user.authenticate(params[:password])
-      @user.update(password_digest: params[:new_password])
+      @user.update(password_digest: BCrypt::Password.create(params[:new_password]))
       flash[:notice] = 'User info was successfully updated.'
       redirect_to user_orms_path(@user)
     else

@@ -79,3 +79,5 @@ end
 group :production do
   gem 'pg'
 end
+
+gem "async", "~> 2.6"
