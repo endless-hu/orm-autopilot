@@ -2,7 +2,7 @@ require 'redcarpet'
 
 class OrmsController < ApplicationController
   before_action :authenticate_user
-  before_action :authorize_user, only: %i[index show edit update destroy]
+  before_action :authorize_user, only: %i[index show edit update destroy new]
   before_action :set_chat, only: %i[show edit update destroy]
 
   def initialize

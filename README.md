@@ -76,3 +76,29 @@ https://github.com/endless-hu/orm-autopilot
 - [Iteration 1](./docs/iter1.md)
 - [Iteration 2](./docs/iter2.md)
 - [Final](./docs/final.md)
+
+## example code snippet
+```python
+from django.shortcuts import render
+from .models import Author, Book
+
+def inefficient_view(request):
+    books = Book.objects.all()
+    author_books = {}
+    for book in books:
+        author_name = book.author.name
+        if author_name not in author_books:
+            author_books[author_name] = []
+        author_books[author_name].append(book.title)
+
+    total_books = len(books)
+
+    all_authors = Author.objects.all()
+    top_authors = all_authors[:5]
+
+    return render(request, 'inefficient_view.html', {
+        'author_books': author_books,
+        'total_books': total_books,
+        'top_authors': top_authors,
+    })
+```
