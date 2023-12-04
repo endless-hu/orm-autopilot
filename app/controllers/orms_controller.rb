@@ -1,7 +1,14 @@
+require 'redcarpet'
+
 class OrmsController < ApplicationController
   before_action :authenticate_user
   before_action :authorize_user, only: %i[index show edit update destroy]
   before_action :set_chat, only: %i[show edit update destroy]
+
+  def initialize
+    super
+    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, fenced_code_blocks: true, tables: true)
+  end
 
   def redirect_to_user_orms
     redirect_to user_orms_path(@current_user)
