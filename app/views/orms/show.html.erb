@@ -11,12 +11,12 @@
       ORM Code
     </h2>
     <div class="input-div code-input card">
-    <pre><code><%= @chat.code %></code></pre>
+    <pre style="white-space: pre-wrap;"><code class="<%= @chat.language.downcase %>" style="background-color: white"><%= @chat.code %></code></pre>
     </div>
     <h2 class="title show-language">
       Programming Language
     </h2>
-    <div class="card input-div">
+    <div class="card input-div" style="padding-left: 10px">
       <%= @chat.language %>
     </div>
   </section>
@@ -32,3 +32,8 @@
     <%= button_to 'Edit', edit_user_orm_path(@current_user, @chat), method: :get, class: 'btn btn-xs btn-primary' %>
   </section>
 </div>
+
+<!-- load code highlighting library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>

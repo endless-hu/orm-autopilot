@@ -6,10 +6,14 @@
 
 .input-control {
   width: 100%;
-  max-width: 400px;
 }
 
 .centered-div {
   margin-left: auto;
   margin-right: auto;
+}
+
+.fix-width {
+  width: 60%;
+  max-width: 360px;
 }
