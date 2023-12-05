@@ -24,11 +24,16 @@ class Chat < ApplicationRecord
       request_timeout: 150
     )
     content1 = <<~HEREDOC
-    Prompt for Code Review:
-    I have written the following piece of code in #{lang} using ORM:
+    Given the following piece of code:
+    
+    ```#{lang}
     #{code}
-    Could you please analyze it and provide feedback on some obvious inefficient design patterns or practices that might lead to an increased number of database fetches or inefficient database connections? I'm looking for detailed feedback on specific lines or sections of the code.
-    The response format I am looking for is:
+    ```
+
+    First please check if the code makes sense and involves the correct use of the ORM.
+    If not, your entire feedback should be just "Invalid code".
+
+    Otherwise, please analyze it and provide feedback on some obvious inefficient design patterns or practices that might lead to an increased number of database fetches or inefficient database connections. I'm looking for detailed feedback on specific lines or sections of the code. Please follow the format below if you are going to provide feedback on the code:
     - **Problem 1:** 
       - **Location:** Line [line number]
       - **Code Snippet:** `[code snippet]`

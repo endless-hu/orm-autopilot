@@ -4,6 +4,8 @@
   </h3>
 </div>
 
+<%= render 'flash' %>
+
 <div id="update-page">
   <section class="left">
     <!-- Create a code block with title "ORM Code" and the content from @chat.code -->
@@ -26,7 +28,7 @@
       Feedback
     </h2>
     <div class="feedback-div card">
-      <%= @markdown.render(@chat.feedback).html_safe %>
+      <%= raw @markdown.render(@chat.feedback) %>
     </div>
     <!-- Create a button with text "Edit" -->
     <%= button_to 'Edit', edit_user_orm_path(@current_user, @chat), method: :get, class: 'btn btn-xs btn-primary' %>
@@ -36,4 +38,7 @@
 <!-- load code highlighting library -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+<script>
+    var codeBlock = document.querySelector('pre code');
+    hljs.highlightBlock(codeBlock);
+</script>

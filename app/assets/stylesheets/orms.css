@@ -114,3 +114,7 @@ header{
 .w-20{
   width: 20%;
 }
+
+pre {
+  overflow: visible;
+}

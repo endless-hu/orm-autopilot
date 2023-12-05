@@ -35,7 +35,7 @@ class OrmsController < ApplicationController
 
   def create
     @chat = Chat.create(code: params[:code], language: params[:language], feedback: ' ', user_id: session[:user_id], title: ' ')
-    flash[:notice] = 'Chat was successfully created.'
+    flash[:notice] = 'Chat was successfully created. Please check back in about 1 miniute for feedback.'
     GenerateFeedbackJob.perform_later(@chat.id)
     redirect_to user_orm_path(@current_user, @chat)
   end
@@ -43,7 +43,7 @@ class OrmsController < ApplicationController
   def update
     @chat.update(code: params[:code], language: params[:language], feedback: ' ')
     GenerateFeedbackJob.perform_later(@chat.id)
-    flash[:notice] = 'Chat was successfully updated.'
+    flash[:notice] = 'Chat was successfully updated. Please check back in about 1 miniute for feedback.'
     redirect_to user_orm_path(@current_user, @chat)
   end
 
