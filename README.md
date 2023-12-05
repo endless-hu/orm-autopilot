@@ -61,11 +61,15 @@ To run user stories:
 $ bundle exec cucumber
 ```
 
-You will find test coverage reports under `coverage/`. Currently, the test coverage is 100% for iteration 2. (We excluded `channels`, `jobs`, and `mailers` in the coverage counting since we did not involve them in our app. )
+You will find test coverage reports under `coverage/`. Currently, the test coverage is 100% for the final version. (We excluded `channels` and `mailers` in the coverage counting since we did not involve them in our app. )
 
-## Heroku Deployment Link:
+## Heroku Deployment Link
 
 https://cryptic-shore-36909-e715a94c8071.herokuapp.com/
+
+**Usage Notice**: Due to the high lantency of ChatGPT API call, we make it to perform in 
+a background job. Therefore, When you submit code, you will see blank feedback. Please wait
+for about one minute and refresh the page to see the feedback.
 
 ## Repo Link
 
@@ -78,6 +82,7 @@ https://github.com/endless-hu/orm-autopilot
 - [Final](./docs/final.md)
 
 ## example code snippet
+
 ```python
 from django.shortcuts import render
 from .models import Author, Book
@@ -101,4 +106,21 @@ def inefficient_view(request):
         'total_books': total_books,
         'top_authors': top_authors,
     })
+```
+
+```ruby
+class BooksController < ApplicationController
+  def inefficient_view
+    @books = Book.all
+    @author_books = {}
+    @books.each do |book|
+      author_name = book.author.name
+      @author_books[author_name] ||= []
+      @author_books[author_name] << book.title
+    end
+    @total_books = @books.length
+    @top_authors = Author.limit(5).all
+    render 'inefficient_view'
+  end
+end
 ```
