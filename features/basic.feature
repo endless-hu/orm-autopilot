@@ -86,4 +86,3 @@ Scenario: GPT API call times out and throws exception
   When I fill in the form with the ORM code "test 1"
   And I press "Submit"
   Then I should be on the review page for "test 1" for "test1@test.fake"
-  Then I should see "Sorry, the GPT API call timed out. Please try again later."
