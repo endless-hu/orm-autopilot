@@ -34,15 +34,15 @@ class OrmsController < ApplicationController
   end
 
   def create
-    feedback = Chat.generate_feedback(params[:code], params[:language], Rails.application.credentials.gpt_key)
-    @chat = Chat.create(code: params[:code], language: params[:language], feedback: feedback, user_id: session[:user_id], title: ' ')
+    @chat = Chat.create(code: params[:code], language: params[:language], feedback: ' ', user_id: session[:user_id], title: ' ')
     flash[:notice] = 'Chat was successfully created.'
+    GenerateFeedbackJob.perform_later(@chat.id)
     redirect_to user_orm_path(@current_user, @chat)
   end
 
   def update
-    feedback = Chat.generate_feedback(params[:code], params[:language], Rails.application.credentials.gpt_key)
-    @chat.update(code: params[:code], language: params[:language], feedback: feedback)
+    @chat.update(code: params[:code], language: params[:language], feedback: ' ')
+    GenerateFeedbackJob.perform_later(@chat.id)
     flash[:notice] = 'Chat was successfully updated.'
     redirect_to user_orm_path(@current_user, @chat)
   end
